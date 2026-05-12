@@ -6,7 +6,7 @@ This repository contains high-performance CUDA kernels developed to search for t
 The goal was to explore the structural properties of 9x9 binary matrices. Due to the massive search space, standard CPU implementations were insufficient. This project focuses on the computational engine that made the data filtration and diameter search feasible through GPU acceleration.
 
 ## 🛠 Technical Implementation & Optimization
-- **Search Space Filtration:** Each iteration of the code (v1, v2, etc.) introduced more aggressive heuristics and bitwise filters to prune the search space.
+- **Search Space Filtration:** Each iteration of the code (v1, v2, v3) introduced more aggressive heuristics and bitwise filters to prune the search space.
 - **GF(2) Arithmetic on GPU:** Custom CUDA kernels for binary operations (XOR/AND) to bypass the limitations of floating-point optimized libraries.
 - **Performance Scaling:** Optimized for handling the combinatorial complexity of 9x9 matrix transformations.
 - **Python-CUDA Pipeline:** Integrated via `CuPy`'s `RawModule` to combine Python's flexibility for research logic with CUDA's raw power for the heavy lifting.
