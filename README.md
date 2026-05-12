@@ -11,6 +11,25 @@ The goal was to explore the structural properties of 9x9 binary matrices. Due to
 - **Performance Scaling:** Optimized for handling the combinatorial complexity of 9x9 matrix transformations.
 - **Python-CUDA Pipeline:** Integrated via `CuPy`'s `RawModule` to combine Python's flexibility for research logic with CUDA's raw power for the heavy lifting.
 
+## 📁 Project Structure & Evolution
+
+The project evolved through three main iterations, each significantly narrowing down the search space for the 9x9 matrix diameter.
+
+### Phase 1: Initial Batch Processing
+- **Files:** `src/v1.py` & `src/kernels/gf2_matmul.cu`
+- **Logic:** Basic implementation of binary matrix multiplication on GPU. Used for broad scanning of the matrix space to identify potential candidates.
+
+### Phase 2: Inverse Consistency Check
+- **Files:** `src/v2.py` & `src/kernels/gf2_matmul_1b.cu`
+- **Logic:** Introduced simultaneous checking of the matrix and its inverse. This version added a filtration layer that eliminated matrices which didn't meet the research-specific symmetry criteria in GF(2).
+
+### Phase 3: Binary Tree Search & Advanced Pruning
+- **Files:** `src/v3.py` & `src/kernels/gf2_matmul_2.cu`
+- **Logic:** The most optimized version. 
+  - **CUDA:** Implemented `search_binary_tree` directly on the GPU to verify matrices against a pre-calculated batch mask.
+  - **Performance:** Significant reduction in GPU-CPU data transfer by moving the filtration logic into the kernel itself.
+  - **Goal:** Final filtration for the 9x9 matrix diameter research.
+
 ## 📊 Project Scope
 Note: This repository contains only the **computational source code** and kernels. Experimental input data and resulting research datasets are excluded.
 
