@@ -1,4 +1,4 @@
-# GF(2) Binary Matrix Diameter Search (CUDA Optimized)
+# GF(2) Binary Matrix Space Diameter Search (CUDA Optimized)
 
 High-performance CUDA kernels built to search for the **diameter of a 9×9 matrix space over GF(2)**, developed to support an academic research paper.
 
